@@ -55,15 +55,6 @@ Returns a list of system events with optional filtering.
 
 Level filtering uses severity ordering — selecting `WARNING` returns both WARNING and ERROR events.
 
-## Design Decisions
-
-- **No database** — 50 mock events generated at startup with realistic messages and randomized timestamps across January 2025.
-- **Minimal dependencies** — No axios (native `fetch`), no class-validator (manual validation for 3 optional query params), no UI component library.
-- **Tailwind CSS** — Utility-first styling with a custom dark theme defined via `@theme` in CSS. No separate CSS files per component.
-- **Explicit "Apply" button** — Filters are submitted on button click rather than on every input change, avoiding excessive API calls.
-- **Vite proxy** — The frontend proxies `/api/*` requests to the backend during development, avoiding CORS issues.
-- **AbortController** — The `useEvents` hook cancels in-flight requests when a new fetch is triggered.
-
 ## Tech Stack
 
 - **Backend:** NestJS, TypeScript
